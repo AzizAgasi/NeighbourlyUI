@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="30dp"
+    android:elevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imagePost"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            tools:src="@drawable/image_post"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/imagePost"
+            app:layout_constraintTop_toBottomOf="@id/imagePost"
+            tools:src="@drawable/ic_profile"/>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/userImage"
+            app:layout_constraintStart_toEndOf="@id/userImage"
+            android:layout_marginStart="10dp"
+            tools:text="User name"/>
+
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/userImage"
+            app:layout_constraintStart_toEndOf="@id/userImage"/>
+
+        <TextView
+            android:id="@+id/userLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/locationIcon"
+            app:layout_constraintTop_toTopOf="@id/locationIcon"
+            app:layout_constraintStart_toEndOf="@id/locationIcon"
+            tools:text="User's location"/>
+
+        <TextView
+            android:id="@+id/userCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/userLocation"
+            app:layout_constraintStart_toStartOf="@id/locationIcon"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textColor="@color/purple_700"
+            tools:text="Big building"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
