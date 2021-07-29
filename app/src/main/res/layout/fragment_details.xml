@@ -127,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/numberOfAnswers"/>
@@ -183,7 +183,6 @@
                 android:id="@+id/answerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:background="@android:color/holo_orange_dark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/topAnswer"
@@ -200,15 +199,15 @@
 
                 <EditText
                     android:id="@+id/answerField"
-                    android:layout_width="250dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="@+id/userAnswerImage"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/userAnswerImage"
-                    app:layout_constraintTop_toTopOf="@+id/userAnswerImage" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                     />
 
                 <TextView
+                    android:id="@+id/answerText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/answer"
@@ -221,6 +220,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/sendButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_send"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

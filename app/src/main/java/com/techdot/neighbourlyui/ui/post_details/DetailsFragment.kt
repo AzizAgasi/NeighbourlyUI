@@ -4,10 +4,18 @@ import android.app.Dialog
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -48,6 +56,10 @@ class DetailsFragment : BottomSheetDialogFragment() {
         binding.commenterImage.setImageResource(post!!.commenterImage)
         binding.commenterReply.text = post?.answer
 
+        binding.answerButton.setOnClickListener {
+            addComment(binding)
+        }
+
         return binding.root
     }
 
@@ -77,6 +89,24 @@ class DetailsFragment : BottomSheetDialogFragment() {
             BottomSheetBehavior.from(bottomSheet!!).state = BottomSheetBehavior.STATE_EXPANDED
         }
         return bottomSheetDialog
+    }
+
+    private fun addComment(binding: FragmentDetailsBinding) {
+        binding.answerText.visibility = View.INVISIBLE
+
+        binding.userAnswerImage.apply {
+            visibility = View.VISIBLE
+            setImageResource(post!!.userImage)
+        }
+        binding.answerField.apply {
+            visibility = View.VISIBLE
+            hint = "Enter an answer                "
+        }
+
+        binding.answerField.doOnTextChanged { text, start, before, count ->
+            binding.userAnswerImage.visibility = View.GONE
+            binding.sendButton.visibility = View.VISIBLE
+        }
     }
 
     companion object {
